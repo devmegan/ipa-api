@@ -1,10 +1,24 @@
 # [IPA API](https://devmegan.github.io/ipa-api/)
 
-Api that returns phonetic code words from the international phonetic alphabet. 
+Api that returns phonetic code words from the international phonetic alphabet. Written with [FastAPI](https://fastapi.tiangolo.com/).
 
-Written with [FastAPI](https://fastapi.tiangolo.com/).
+Built into docker image that lives on dockerhub here: [ipa-api image on dockerhub](https://hub.docker.com/repository/docker/devmegan/ipa-api)
 
-Clone and use `uvicorn app:app --reload` to run live server. API docs exist at `/docs`
+## Run in docker
+
+To use the image, run:
+
+`$ docker container run -p 80:80 devmegan/ipa-api:latest`
+
+To build and run from the [Dockerfile](Dockerfile):
+
+```
+$ docker image build -t ipa-api:latest .
+$ docker container run -p 80:80 ipa-api:latest
+```
+
+## Run locally
+Clone and use `uvicorn app:app --reload` to run live server.
 
 ## GET `/letter/{letter}`
 
