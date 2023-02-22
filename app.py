@@ -20,8 +20,8 @@ app = FastAPI(
     openapi_tags=tags_metadata,
 )
 
-@app.get("/letter/{letter}", tags=["letter"])
-def read_item(letter: str = Path(max_length=1, regex="^[a-zA-Z]$")):
+@app.get("/codeword/{letter}", tags=["ipa"])
+def get_codeword(letter: str = Path(max_length=1, regex="^[a-zA-Z]$")):
     letter = letter.upper()
 
     file = open('ipa.json')
