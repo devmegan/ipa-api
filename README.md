@@ -4,6 +4,8 @@ Api that returns phonetic code words from the international phonetic alphabet. W
 
 Built into docker image that lives on dockerhub here: [ipa-api image on dockerhub](https://hub.docker.com/repository/docker/devmegan/ipa-api)
 
+<img src="README/ipa-api.gif" alt="gif of hitting codeword endpoint in swagger ui" />
+
 ## Run in docker
 
 To use the image, run:
