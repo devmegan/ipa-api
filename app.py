@@ -2,17 +2,25 @@ import json
 
 from fastapi import FastAPI, Path
 
-app = FastAPI()
+tags_metadata = [
+    {
+        "name": "letter",
+        "description": "endpoints handling letters",
+    },
+]
 
+app = FastAPI(
+    title="IPA API",
+    version="0.0.1",
+    description="Api that returns phonetic code words from the international phonetic alphabet",
+    contact={
+        "email": "devmegan@protonmail.com",
+    },
+    docs_url="/",
+    openapi_tags=tags_metadata,
+)
 
-@app.get("/")
-def read_root():
-    return {
-        "instructions": "use the /letter/{letter} endpoint to fetch the corresponding phonetic code word"
-    }
-
-
-@app.get("/letter/{letter}")
+@app.get("/letter/{letter}", tags=["letter"])
 def read_item(letter: str = Path(max_length=1, regex="^[a-zA-Z]$")):
     letter = letter.upper()
 
