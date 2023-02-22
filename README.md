@@ -22,16 +22,18 @@ $ docker container run -p 80:80 ipa-api:latest
 ## Run locally
 Clone and use `uvicorn app:app --reload` to run live server.
 
-## GET `/letter/{letter}`
+## GET `/codeword/{letter}`
 
-Takes a case-insensitive letter as a path parameter and returns a json response with the letter and corresponsing phonetic code word.
+Takes a case-insensitive letter as a path parameter and returns a json response with the letter and corresponding phonetic code word.
 
 eg: 
 
 ```
 request: 
 
-GET /letter/A
+curl -X 'GET' \
+  'http://127.0.0.1/codeword/A' \
+  -H 'accept: application/json'
 
 response:
 
@@ -44,6 +46,6 @@ response:
 
 ### Validation
 
-`/letter/{letter}` endpoint has some validation:
+`/codeword/{letter}` endpoint has some validation:
 - letter parameter must be an uppercase or lowercase character from the English alphabet (a-z, A-Z)
 - letter parameter must have a maximum length of 1 character
