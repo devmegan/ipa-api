@@ -4,8 +4,8 @@ from fastapi import FastAPI, Path
 
 tags_metadata = [
     {
-        "name": "letter",
-        "description": "endpoints handling letters",
+        "name": "ipa",
+        "description": "endpoints handling international phonetic alphabet",
     },
 ]
 
