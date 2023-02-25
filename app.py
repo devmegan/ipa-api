@@ -9,6 +9,8 @@ tags_metadata = [
     },
 ]
 
+origins = ["*"]
+
 app = FastAPI(
     title="IPA API",
     version="0.0.1",
@@ -19,6 +21,15 @@ app = FastAPI(
     docs_url="/",
     openapi_tags=tags_metadata,
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET"],
+    allow_headers=["*"]
+)
+
 
 @app.get("/codeword/{letter}", tags=["ipa"])
 def get_codeword(letter: str = Path(max_length=1, regex="^[a-zA-Z]$")):
